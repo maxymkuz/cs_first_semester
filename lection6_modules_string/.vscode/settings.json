@@ -1,0 +1,10 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": false,
+    "python.pythonPath": "C:\\Users\\max\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.linting.banditEnabled": false,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.mypyEnabled": false,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pycodestyleEnabled": true
+}
