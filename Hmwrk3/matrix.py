@@ -10,6 +10,7 @@ def saddle_point(matrix):
     res = []
     for row in range(len(matrix)):
         for column in range(len(matrix[row])):
+            minimal = matrix[row][column]
             for i in range(len(matrix) - 1):
                 minimal = min(matrix[i][column], matrix[i + 1][column])
             if matrix[row][column] == minimal == max(matrix[row]):
@@ -17,4 +18,4 @@ def saddle_point(matrix):
     return res
 
 
-print(saddle_point([[3, 1, 3], [3, 2, 4]]))
+print(saddle_point([[2, 1, 4, 1]]))

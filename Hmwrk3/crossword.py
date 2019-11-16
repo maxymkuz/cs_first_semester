@@ -1,9 +1,10 @@
+import copy
+
+
 def read_crossword(path):
     """
     str -> list
-    
     Return list of tuples with crossword letters and it's positions
-    
     >>> read_crossword('crossword_3_2.txt')
     [('o', (0, 1)), ('o', (3, 1)), ('o', (5, 1)), ('o', (4, 3)),...
     """
@@ -28,19 +29,20 @@ def print_crossword(crossword):
 
     Print crossword
     """
-    lst1 = [" " for i in range(10)]
-    lst2 = [lst1 for i in range(10)]
-    print(lst2)
     res = ""
+    lst1 = [" " for i in range(8)]
+    lst2 = [copy.copy(lst1) for i in range(8)]
     for i in crossword:
-        letter = i[0]
-        tpl = i[1]
-        print(letter, tpl[0], tpl[1])
-        lst2[tpl[0]][tpl[1]] = letter
-    for i in len(lst2):
-        
-    print(lst2)
+        lst2[i[1][0]][i[1][1]] = i[0]
 
+    for i in range(8):
+        for j in range(8):
+            if lst2[i][j] == "":
+                res += "  "
+            else:
+                res += lst2[i][j] + " "
+        res += "\n"
+    print(res)
 
 
 if __name__ == "__main__":

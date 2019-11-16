@@ -1,5 +1,6 @@
 import doctest
-
+import calculator
+print(calculator.calculate([2, 4, 6, 7, 3]))
 
 def is_power_of_two(val):
     """
@@ -72,11 +73,14 @@ def compress(string):
     >>> compress('AAABAACCDDDD')
     'A3BA2C2D4'
     """    
+    temp = string
     if not isinstance(string, str):
         return None
     for i in range(len(string) + 1, 1, -1):
         for j in range(65, 123):
             to_replace = chr(j) * i        
             string = string.replace(to_replace, chr(j) + str(i))
-    return string
+    return temp if len(temp) == len(string) else string
 
+import doctest
+doctest.testmod()
