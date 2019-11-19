@@ -1,5 +1,6 @@
 import ast
 import doctest
+import copy
 
 
 def get_graph_from_file(file_name):
@@ -13,7 +14,7 @@ def get_graph_from_file(file_name):
     """
     with open(file_name) as f:
         res = []
-        for line in f:
+        for line in f:/;/
             els = list(ast.literal_eval(line))
             line.split(",")
             res.append(els)
@@ -44,7 +45,8 @@ def is_edge_in_graph(graph, edge):
 
     Return True if graph contains a given edge and False otherwise.
 
-    >>> is_edge_in_graph({1: [2, 5], 2: [1, 4], 3: [4], 4: [2, 3], 5: [1]}, (3, 1))
+    >>> is_edge_in_graph({1: [2, 5], 2: [1, 4], 3: [4], 4: [2, 3],\
+ 5: [1]}, (3, 1))
     False
     """
     return True if edge[1] in graph.get(edge[0], []) else False
@@ -66,23 +68,59 @@ def add_edge(graph, edge):
 
 
 def del_edge(graph, edge):
-    """ 
+    """
     (dict, tuple) -> (dict)
-    
+
     Delete an edge from the graph and return a new graph.
-    
+
     >>> del_edge({1: [2, 5], 2: [1, 4], 3: [4], 4: [2, 3], 5: [1]}, (2, 4))
     {1: [2, 5], 2: [1], 3: [4], 4: [3], 5: [1]}
     """
     if edge[1] in graph.get(edge[0], []):
-        a = graph.get(edge[0], [])
-        a.remove(edge[1])
-        b = graph.get(edge[1], [])
-        b.remove(edge[0])
-        graph[edge[0]] = a
-        graph[edge[1]] = b
+        graph[edge[0]].remove(edge[1])
+        graph[edge[1]].remove(edge[0])
     return graph
 
-print(del_edge({1: [2, 5], 2: [1, 4], 3: [4], 4: [2, 3], 5: [1]}, (2, 4)))
-# doctest.testmod()
+
+def add_node(graph, node):
+    """
+    (dict, int) -> (dict)
+
+    Add a new node to the graph and return a new graph.
+
+    >>> add_node({1: [2], 2: [1]}, 3)
+    {1: [2], 2: [1], 3: []}
+    """
+    if node not in graph:
+        graph[node] = []
+    return graph
+
+
+def del_node(graph, node):
+    """
+    (dict, int) -> (dict)
+
+    Delete a node and all incident edges from the graph.
+
+    >>> del_node({1: [2, 5], 2: [1, 4], 3: [4], 4: [2, 3], 5: [1]}, 4)
+    {1: [2, 5], 2: [1], 3: [], 5: [1]}
+    """
+    if node in graph:
+        a = copy.copy(graph.get(node, []))
+        for i in a:
+            del_edge(graph, (node, i))
+        del graph[node]
+    return graph
+
+
+def convert_to_dot(graph):
+    """
+    (dict) -> (None)
+
+    Save the graph to a file in a DOT format.
+    """
+    pass
+
+
+doctest.testmod()
 # COMMON NAMES -- INTERSECTION     &--intersection
