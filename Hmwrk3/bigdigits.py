@@ -56,8 +56,7 @@ def return_digits(number):
             if row != 6:
                 res += line + "\n"
             else:
-                res += line
-            
+                res += line 
             row += 1
         return res
     except IndexError:

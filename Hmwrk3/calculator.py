@@ -27,7 +27,7 @@ def calculate(numbers):
         median = (numbers[int(x/2)] + numbers[int(x/2 - 1)])/2
     return (cp, count, summary, lowest, highest, avg, median)
 
-
+print(calculate([5, 4, 1, 8, 5, 2]))
 # if __name__ == "__main__":
 #     num_arr = []
 #     while True:

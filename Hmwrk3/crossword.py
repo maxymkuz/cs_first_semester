@@ -19,6 +19,7 @@ def read_crossword(path):
                 letter = line[0][0]
             else:
                 for i in line:
+                
                     temp = (letter, (int(i[1]), int(i[3])))
                     res.append(temp)
     return res
@@ -29,20 +30,58 @@ def print_crossword(crossword):
 
     Print crossword
     """
-    res = ""
-    lst1 = [" " for i in range(8)]
-    lst2 = [copy.copy(lst1) for i in range(8)]
+    max_col = -1
+    max_row = -1
+    for x in crossword:
+        col = x[1][0]
+        row = x[1][1]
+        if row > max_row:
+            max_row = row
+        if col > max_col:
+            max_col = col
+
+    lst1 = [" " for i in range(max_row + 1)]
+    lst2 = [copy.copy(lst1) for i in range(max_col + 1)]
+
     for i in crossword:
         lst2[i[1][0]][i[1][1]] = i[0]
 
-    for i in range(8):
-        for j in range(8):
+    for i in range(max_row + 1):
+        res = ''
+        for j in range(max_col + 1):
             if lst2[i][j] == "":
-                res += "  "
+                res += " "
             else:
-                res += lst2[i][j] + " "
-        res += "\n"
-    print(res)
+                res += lst2[i][j]
+        res = res.split(" ")
+        for word in res:
+            if len(word) > 1:
+                print(word)
+
+    for j in range(max_col + 1):
+        res = ''
+        for i in range(max_row + 1):
+            if lst2[i][j] == "":
+                res += " "
+            else:
+                res += lst2[i][j]
+        res = res.split(" ")
+        for word in res:
+            if len(word) > 1:
+                print(word)
+    res = ''
+
+    # for i in range(max_row + 1):
+    #     for j in range(max_col + 1):
+    #         if lst2[i][j] == "":
+    #             res += " "
+    #         else:
+    #             res += lst2[i][j]
+    #     print(res)
+    #     res += "\n"
+
+
+
 
 
 if __name__ == "__main__":
