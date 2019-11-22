@@ -1,7 +1,6 @@
 def dict_reader_tuple(file_dict):
     with open(file_dict, 'r', encoding='utf-8') as f:
-        ans = [(line.strip().split()[0], line.strip().split()[1], line.strip().split()[2:]) for line in f]
-    return ans
+        return [(line.strip().split()[0], int(line.strip().split()[1]), line.strip().split()[2:]) for line in f]
 
 
 def dict_reader_dict(file_dict):
@@ -20,30 +19,38 @@ def dict_reader_dict(file_dict):
 
 
 # print(dict_reader_dict('cmudict2.txt'))
+def list_to_dict(lst):
+    dct = {i[0]: set() for i in lst}
+    for i in lst:
+        dct[i[0]].add((tuple(i[2])))
+    return dct
 
 
 def dict_invert(dct):
     """
-    >>> dict_invert({'WATER':{('W','A','T','E','R')}})
-    {1: {('WATER', ('W','A','T','E','R'))}}
-    """
-    print(dct)
-    res = {}
-    if isinstance(dct, dict):
-        for key in dct:
-            # to_append
-            # for i in range(len(dct[key])):
-            lst = list(dct[key])
-            print(lst)
-            lst_with_tupples = []
-            for i in range(len(dct[key])):
-                lst_with_tupples.append(tuple([key, lst[0]]))
-            tpl = tuple(lst_with_tupples)
-            if key not in res:
-                res[len(dct[key])] = tpl
-            print(key, type(dct[key]), len(dct[key]))
-    
-    print(res)
+    Return a dictionary, not depending whether the list or 
+    dictionary was an argument
 
-dict_invert({'WATER':{('W','A','T','E','R'), ('ASJKL:', "rfghjk")},
-                  'AAA': {('T', 'R', 'IH2', 'P', 'AH0', 'L', 'EY1')}})
+    >>> dict_invert({'WATER':{('W', 'A', 'T', 'E', 'R')}})
+    {1: {('WATER', ('W', 'A', 'T', 'E', 'R'))}}
+    >>> dict_invert([("NACHOS", 1, ["N", "AA1", "CH", "OW0", "Z"])])
+    {1: {('NACHOS', ('N', 'AA1', 'CH', 'OW0', 'Z'))}}
+    >>> dict_invert({'NACHOS':{("N", "AA1", "CH", "OW0", "Z")}})
+    {1: {('NACHOS', ('N', 'AA1', 'CH', 'OW0', 'Z'))}}
+    """
+    if isinstance(dct, list):
+        dct = list_to_dict(dct)
+    res = {}
+    for key in dct:
+        n = len(dct[key])
+        for i in range(n):
+            if n not in res:
+                res[n] = set()
+            res[n].add((key, tuple(dct[key])[i]))
+
+    res_sorted = {key: res[key] for key in sorted(res.keys())}
+    return res_sorted
+
+
+# print(dict_invert(dict_reader_tuple('cmudict2.txt')) == 
+# dict_invert(dict_reader_dict('cmudict2.txt')))
