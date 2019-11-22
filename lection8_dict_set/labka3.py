@@ -27,5 +27,23 @@ def dict_invert(dct):
     >>> dict_invert({'WATER':{('W','A','T','E','R')}})
     {1: {('WATER', ('W','A','T','E','R'))}}
     """
+    print(dct)
+    res = {}
     if isinstance(dct, dict):
-        
+        for key in dct:
+            # to_append
+            # for i in range(len(dct[key])):
+            lst = list(dct[key])
+            print(lst)
+            lst_with_tupples = []
+            for i in range(len(dct[key])):
+                lst_with_tupples.append(tuple([key, lst[0]]))
+            tpl = tuple(lst_with_tupples)
+            if key not in res:
+                res[len(dct[key])] = tpl
+            print(key, type(dct[key]), len(dct[key]))
+    
+    print(res)
+
+dict_invert({'WATER':{('W','A','T','E','R'), ('ASJKL:', "rfghjk")},
+                  'AAA': {('T', 'R', 'IH2', 'P', 'AH0', 'L', 'EY1')}})

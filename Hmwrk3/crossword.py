@@ -19,7 +19,6 @@ def read_crossword(path):
                 letter = line[0][0]
             else:
                 for i in line:
-                
                     temp = (letter, (int(i[1]), int(i[3])))
                     res.append(temp)
     return res
@@ -53,6 +52,7 @@ def print_crossword(crossword):
                 res += " "
             else:
                 res += lst2[i][j]
+        
         res = res.split(" ")
         for word in res:
             if len(word) > 1:
@@ -69,18 +69,16 @@ def print_crossword(crossword):
         for word in res:
             if len(word) > 1:
                 print(word)
+
     res = ''
-
-    # for i in range(max_row + 1):
-    #     for j in range(max_col + 1):
-    #         if lst2[i][j] == "":
-    #             res += " "
-    #         else:
-    #             res += lst2[i][j]
-    #     print(res)
-    #     res += "\n"
-
-
+    for i in range(max_row + 1):
+        for j in range(max_col + 1):
+            if lst2[i][j] == "":
+                res += " "
+            else:
+                res += lst2[i][j] + " "
+        res += "\n"
+    
 
 
 
