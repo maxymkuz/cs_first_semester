@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -12,18 +13,18 @@ int main(){
         len++;
         inpt /= 10;
     }
-    int num_array[len];
+    int num_array[1000];
     for(int i = 0; i < len; i++){
         num_array[i] = n%10;
         n /= 10;
-
     }
-    for (int i = 0; i < len / 2 + 1; i++)
+
+    for (int i = 0; i <= len; i++)
     {
         if (num_array[i] == num_array[len - i - 1]){
             res++;
         }
     }
-    cout<<res;
+    cout<<ceil(res/2)<<endl;
     return 0;
 }

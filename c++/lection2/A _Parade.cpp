@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     int n;
     cin>>n;
-    int differance [n];
+    int differance [1000000];
     int sum = 0;
     int max_possible = 0;
     int k = 0;
