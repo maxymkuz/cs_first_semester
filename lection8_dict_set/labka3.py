@@ -52,5 +52,4 @@ def dict_invert(dct):
     return res_sorted
 
 
-# print(dict_invert(dict_reader_tuple('cmudict2.txt')) == 
-# dict_invert(dict_reader_dict('cmudict2.txt')))
+print(dict_invert(dict_reader_tuple('cmudict2.txt')) == dict_invert(dict_reader_dict('cmudict2.txt')))

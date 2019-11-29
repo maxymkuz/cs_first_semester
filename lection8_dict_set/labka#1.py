@@ -14,7 +14,7 @@ def get_graph_from_file(file_name):
     """
     with open(file_name) as f:
         res = []
-        for line in f:/;/
+        for line in f:
             els = list(ast.literal_eval(line))
             line.split(",")
             res.append(els)
