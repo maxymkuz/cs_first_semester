@@ -1,0 +1,10 @@
+config/first_step/cdt.qt.install.name=/usr/bin/qmake
+config/first_step/cdt.qt.install.spec=linux-g++
+config/first_step/cdt.toolChain.id=gcc-x86_64-/usr/bin/gcc
+config/first_step/cdt.toolChain.type=org.eclipse.cdt.build.gcc
+config/first_step/org.eclipse.cdt.qt.core.qtBuildConfigProvider/qt.linux-g++.run/cdt.launchMode=run
+config/first_step/org.eclipse.cdt.qt.core.qtBuildConfigProvider/qt.linux-g++.run/cdt.qt.install.name=/usr/bin/qmake
+config/first_step/org.eclipse.cdt.qt.core.qtBuildConfigProvider/qt.linux-g++.run/cdt.qt.install.spec=linux-g++
+config/first_step/org.eclipse.cdt.qt.core.qtBuildConfigProvider/qt.linux-g++.run/cdt.toolChain.id=gcc-x86_64-/usr/bin/gcc
+config/first_step/org.eclipse.cdt.qt.core.qtBuildConfigProvider/qt.linux-g++.run/cdt.toolChain.type=org.eclipse.cdt.build.gcc
+eclipse.preferences.version=1

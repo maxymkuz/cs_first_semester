@@ -1,0 +1,28 @@
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
+/usr/bin/qmake CONFIG-=debug_and_release CONFIG+=release /home/max/Documents/c++/first_step/first_step.pro 
+Project ERROR: Unknown module(s) in QT: qml quick
+/usr/bin/make all
+make: *** No rule to make target 'all'.  Stop.
