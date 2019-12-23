@@ -21,18 +21,28 @@ void larger_change(double* arr1, double* arr2, int size){
 
 
 int main(){
+    printf("enter the size of both arrays: ");
     int size;
-    scanf("%d", size);
-
-    double arr1[7] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0};
-    double arr2[7] = {7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0};
+    scanf("%d", &size);
+    double *arr1;
+    arr1 = (double *)malloc(size * sizeof(double));
+    printf("Now enter %d elements of first array", size);
+    for (int i = 0; i < size; ++i) {
+        scanf("%lf", &arr1[i]);
+    }
+    printf("Now enter %d elements of second array", size);
+    double *arr2;
+    arr2 = (double *)malloc(size * sizeof(double));
+    for (int i = 0; i < size; ++i) {
+        scanf("%lf", &arr2[i]);
+    }
     larger_change(arr1, arr2, size);
     for (int i = 0; i < size; ++i) {
-        printf("%f ", arr1[i]);
+        printf("%lf ", arr1[i]);
     }
     printf("\n");
     for (int i = 0; i < size; ++i) {
-        printf("%f ", arr2[i]);
+        printf("%lf ", arr2[i]);
     }
     return 0;
 }

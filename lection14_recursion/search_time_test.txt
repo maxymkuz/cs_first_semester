@@ -1,0 +1,4 @@
+While loop search: 0.985
+For loop time:0.568
+Sentinel search: 0.524
+Index search: 0.373
