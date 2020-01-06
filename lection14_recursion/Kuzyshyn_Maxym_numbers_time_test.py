@@ -1,4 +1,4 @@
-import time
+import timeit
 # import sys
 # print(sys.getrecursionlimit())
 m = -1
@@ -47,12 +47,14 @@ fibonachi_recursion_depth = memoize(fibonachi_recursion_depth)
 
 
 def fibonachi_iteration(n):
+    fibonacci = [1, 1]
     if n < 2:
         return 1
-    arr = [1, 1]
-    for i in range(2, n):
-        arr.append(arr[i-1] + arr[i-2])
-    return arr[n-1]
+    i = 2
+    while len(fibonacci) < 1000:
+        fibonacci.append(fibonacci[i - 1] + fibonacci[i - 2])
+        i += 1
+    return fibonacci[n]
 
 
 def factorial_iteration(n):
@@ -82,10 +84,13 @@ def numbers_time_test(func="fibonachi", realization="iteration", verbose=True):
         f = "fibonachi_iteration"
     elif func == "fibonachi" and realization == "recursion":
         f = "fibonachi_recursion"
-    time1 = time.time()
-    setup = 
-    print(f(900))
-    print("Time is:", time.time() - time1)
+
+    setup = f'''from __main__ import {f}'''
+    code = f'''{f}(35)'''
+    time = timeit.repeat(setup=setup, stmt=code, number=100)
+    print(time)
+    # print(f(900))
+    # print("Time is:", time.time() - time1)
 
 
-numbers_time_test("fibonachi", "iteration", False)
+numbers_time_test("fibonachi", "recursion", False)
