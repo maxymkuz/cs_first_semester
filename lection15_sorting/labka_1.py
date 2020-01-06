@@ -48,7 +48,7 @@ def buble_sort(lst):
                 continue
             if lst_sorted[j][1] > lst_sorted[j + 1][1]:
                 lst_sorted[j], lst_sorted[j+1] = lst_sorted[j+1], lst_sorted[j]
-    
+
     return lst_sorted
 
 
@@ -78,7 +78,7 @@ def binary_ones(lst_sorted):
 def most_popular(lst):
     """
     lst -> string
-    returns a name that is most frequent 
+    returns a name that is most frequent
     """
     lst2 = copy.copy(lst)
     most_pop = []
@@ -93,16 +93,15 @@ def most_popular(lst):
                 biggest_name = lst2[i][0]
                 index = i
         most_pop.append((j+1, biggest, biggest_name))
-        del lst2[index]   
+        del lst2[index]
     return most_pop
-
 
 
 def letter_name(lst, letter):
     """
     lst, string -> tuple
-    returns a letter taht most names start with, num of names starting with it
-    arr of names and sum of children
+    returns a letter that most names start with, num of names starting with it
+    list of names and sum of children
     """
     arr = [0 for i in range(100)]
     counter = 0
@@ -141,7 +140,6 @@ def merge_two(l, r):
         else:
             new.append(r[i2])
             i2 += 1
-    # print(new, i1, i2, "______")
 
     new.extend(l[i1:])
     new.extend(r[i2:])

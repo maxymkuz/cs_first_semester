@@ -1,3 +1,0 @@
-/home/max/cs/lection13_pointers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/max/cs/lection13_pointers/cmake-build-debug/CMakeFiles/lection13_pointers.dir
-/home/max/cs/lection13_pointers/cmake-build-debug/CMakeFiles/edit_cache.dir

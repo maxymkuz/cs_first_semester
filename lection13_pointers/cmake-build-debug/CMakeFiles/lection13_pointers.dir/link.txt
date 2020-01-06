@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblection13_pointers.a  CMakeFiles/lection13_pointers.dir/new.c.o
-/usr/bin/ranlib liblection13_pointers.a
