@@ -1,44 +1,39 @@
-def merge_two(l, r):
-    new = []
-    i1, i2 = 0, 0
-    while i1 != len(l) and i2 != len(r):
-        # print(new, i1, i2)
-        if l[i1] < r[i2]:
-            new.append(l[i1])
-            i1 += 1
-        else:
-            new.append(r[i2])
-            i2 += 1
-    # print(new, i1, i2, "______")
 
-    new.extend(l[i1:])
-    new.extend(r[i2:])
-    return new
+def partition(arr,low,high): 
+    i = ( low-1 )         # index of smaller element 
+    pivot = arr[high]     # pivot 
+  
+    for j in range(low , high): 
+  
+        # If current element is smaller than or 
+        # equal to pivot 
+        if   arr[j] <= pivot: 
+          
+            # increment index of smaller element 
+            i = i+1 
+            arr[i],arr[j] = arr[j],arr[i] 
+  
+    arr[i+1],arr[high] = arr[high],arr[i+1] 
+    return ( i+1 ) 
+  
+# The main function that implements QuickSort 
+# arr[] --> Array to be sorted, 
+# low  --> Starting index, 
+# high  --> Ending index 
+  
+# Function to do Quick sort 
+def quickSort(arr,low,high): 
+    if low < high: 
+  
+        # pi is partitioning index, arr[p] is now 
+        # at right place 
+        pi = partition(arr,low,high) 
+  
+        # Separately sort elements before 
+        # partition and after partition 
+        quickSort(arr, low, pi-1) 
+        quickSort(arr, pi+1, high) 
 
-
-# print(merge_two([3, 5], [9, 7, 4]))
-
-
-def merge_sort(lst):
-    if len(lst) > 1:
-        middle = int(len(lst)/2)
-        left = lst[:middle]
-        right = lst[middle:]
-
-        left = merge_sort(left)
-        right = merge_sort(right)
-        x = merge_two(left, right)
-        return x
-
-    return lst
-
-
-lst = [1, 6, 8, 2, 3, 5, 9, 7, 4]
-merge_sort(lst)
-
-def buble_sort(lst):
-    for i in range(len(lst)):
-        for j in range(len(lst) - 1):
-            if lst[j] > lst[j+1]:
-                lst[j], lst[j+1] = lst[j+1], lst[j]
-    return lst
+arr = [randint(0, 10**4) for x in range(10**5)]
+n = len(arr) 
+quickSort(arr,0,n-1) 

@@ -1,0 +1,23 @@
+Імена ==  variables == ідентифікатори
+змінна в Пайтон- посилання на об'єкт
+>>> int("12a")   ValueError
+>>> int([12])    TypeError
+
+int - 8 байтів
+
+простір імен: імена змінних, функцій
+
+__builtins__ built in functions
+
+<<< String >>>:
+find() == index but index returns ValueError if not find
+capitalize == title
+
+<<<Set>>>:
+set.remove(i) KeyError if i not in set
+set.discard(i)  without errors
+set.  (issubset, union, intersection, difference)
+
+<<<Dictionary>>>:
+dict. (items(), keys(), values())
+del dict[key]      dict.pop(key)

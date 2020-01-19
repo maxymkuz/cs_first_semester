@@ -1,0 +1,3 @@
+merge time:6.901
+Quick complicated: 4.133
+Quick easy: 4.343

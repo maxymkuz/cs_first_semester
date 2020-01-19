@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/lection_12_Clion.dir/asdas2.c.o  -o lection_12_Clion 
