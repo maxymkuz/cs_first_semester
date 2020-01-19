@@ -26,3 +26,15 @@ print(l1 is l2)
 
 #  Розпакування списку:
 # a, *rest = [1, 2, 3, 4, 5]  a = 1; b = [2, 3, 4, 5]
+
+# COMPREHENTION
+words = ['attribution', 'confabulation', 'elocution',
+         'sequoia', 'tenacious', 'unidirectional']
+
+vovels = sorted({''.join([l for l in word if l in 'aeiou']) for word in words})
+print(vovels)
+sent = ['The', 'dog', 'gave', 'John', 'the', 'newspaper']
+res = [(word, len(word)) for word in sent]
+print(res)
+
+
