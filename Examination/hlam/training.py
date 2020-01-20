@@ -20,3 +20,14 @@ def nearest_words(lst, string):
 
 
 # print(nearest_words(['cats','snarf','carts','cat','bats','cbts','abcd'],'cats'))
+
+
+def niven_numbers(n):
+    res = []
+    num = 1
+    while len(res) < n:
+        if num % sum([int(l) for l in str(num)]) == 0:
+            if '9' in str(num):
+                res.append(num)
+        num += 1
+    print(res)

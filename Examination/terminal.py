@@ -1,3 +1,6 @@
+import random
+
+
 a = 11
 b = 11
 # print(id(b))
@@ -8,4 +11,6 @@ string = "87.65.4321"
 while len(string) > 1:
     result += string[3:5] + "/"
     string = string[1:-1:2]
-    print(result, string)
+    # print(result, string)
+# print(random.choice([1, 2, 4, 5]))
+

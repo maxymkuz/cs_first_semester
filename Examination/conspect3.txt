@@ -21,3 +21,10 @@ set.  (issubset, union, intersection, difference)
 <<<Dictionary>>>:
 dict. (items(), keys(), values())
 del dict[key]      dict.pop(key)
+
+<<<Recursion>>>:
+sys.setrecursionlimit()  sys.getrecursionlimit()
+
+
+
+all(iterable)-- True if all items are True(not 0 and not [],"")

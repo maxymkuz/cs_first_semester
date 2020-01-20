@@ -1,4 +1,6 @@
 import copy
+import random
+import sys
 
 
 # string = "87.65.4321"
@@ -22,3 +24,22 @@ b = copy.copy(a)
 # print(a[-1] is b[-1])
 
 # a, b, c = list(range(1, 10))[1::3]
+
+# <<<<< LAMBDA MAP FILTER >>>>>
+x = [12, 34]
+# print(' '.join(list(map(int, x))))
+# x = abcd
+# print(list(map(list, x)))
+# print(list(map(list, ['ab', 'cd'])))
+# random.randint(4, 10)
+# print(sys.getsizeof('abc'))
+
+
+def ct3(a):
+    l, m, n = [], [], len(a)
+    for val in a[n-1:0:-2]:
+        l.append(val % 10)
+        m += [int(str(val)[0])]
+        if sum(m) > 3:
+            l.append(m.pop(0))
+    returt l + m
