@@ -212,7 +212,7 @@ def quicksort_rec(lst):
     return quicksort_rec(left) + equal + quicksort_rec(right)
 
 
-def quicksort_effective(lst):
+def quick_effective(lst):
 
     def sort_pivot(lst, pivot_index):
         pivot = lst[pivot_index]
@@ -243,7 +243,7 @@ def quicksort_effective(lst):
         lst[pivot_index], lst[-1] = lst[-1], lst[pivot_index]
     j = sort_pivot(lst, pivot_index)
 
-    return quicksort_effective(lst[:j]) + [pivot] + quicksort_effective(lst[j+1:])
+    return quick_effective(lst[:j]) + [pivot] + quick_effective(lst[j+1:])
 
 
 def quicksort_memory(array):
@@ -266,3 +266,77 @@ def quicksort_memory(array):
             additional(array, left, stop)
     additional(array, 0, len(array) - 1)
     return array
+
+
+RUN = 32
+
+
+def insertionSort(arr, left, right):
+
+    for i in range(left + 1, right+1):
+        temp = arr[i]
+        j = i - 1
+        while arr[j] > temp and j >= left:
+            arr[j+1] = arr[j]
+            j -= 1
+        arr[j+1] = temp
+
+
+# merge function merges the sorted runs
+def merge(arr, l, m, r):
+
+    # original array is broken in two parts
+    # left and right array
+    len1, len2 = m - l + 1, r - m
+
+    left = [arr[l + i] for i in range(len1)]
+    right = [arr[m + 1 + i] for i in range(len2)]
+
+    i, j, k = 0, 0, l
+    # after comparing, we merge those two array
+    # in larger sub array
+    while i < len1 and j < len2:
+
+        if left[i] <= right[j]:
+            arr[k] = left[i]
+            i += 1
+        else:
+            arr[k] = right[j]
+            j += 1
+        k += 1
+
+    arr.extend(left[i:])
+    arr.extend(right[:i])
+
+
+# iterative tim_sort function to sort the
+# array[0...n-1] (similar to merge sort)
+def tim_sort(lst, n):
+
+    # Sort individual subarrays of size RUN
+    for i in range(0, n, RUN):
+        insertionSort(lst, i, min((i+31), (n-1)))
+    # start merging from size RUN (or 32). It will merge
+    # to form size 64, then 128, 256 and so on ....
+    size = RUN
+    while size < n:
+
+        # pick starting point of left sub array. We
+        # are going to merge arr[left..left+size-1]
+        # and arr[left+size, left+2*size-1]
+        # After every merge, we increase left by 2*size
+        for left in range(0, n, 2*size):
+
+            # find ending point of left sub array
+            # mid+1 is starting point of right sub array
+            mid = left + size - 1
+            right = min((left + 2*size - 1), (n-1))
+            # merge sub array arr[left.....mid] &
+            # arr[mid+1....right]
+            merge(lst, left, mid, right)
+
+        size = 2*size
+    return lst
+
+
+print(tim_sort(x, len(x)))
